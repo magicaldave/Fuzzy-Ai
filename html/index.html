@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+	<script>
+            window.onload = function() {
+                var description = "Welcome to Fuzzy-AI!\nFuzzy AI is an in-progress tool written by Artificial Intelligences in an attempt to leverage them for positive mental health.\nWhat you're reading right now is the only manmade portion of Fuzzy-Ai.\nPlease enjoy the cat pics, and if Fuzzy-AI gave you a giggle, consider buying me a coffee. I drink a lot of it.\nFor linux users, you can find a local version here: https://github.com/magicaldave/Fuzzy-Ai";
+                alert(description);
+            };
+        </script>
+	<style>
+	 body {
+	     background-color:black;
+	     background-image:
+		 radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+		 radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+		 radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+		 radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+	     background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+	     background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+	 }
+	 .header {
+             display: flex;
+	     background: linear-gradient(to right, black, #990099);
+	     height: 50px;
+	     width: 100%;
+	     top: 0;
+	     left: 0;
+	     position: fixed;
+             border-bottom : 2px solid #4d004d;
+	 }
+	 footer {
+	     position: fixed;
+	     bottom: 0;
+	     left: 0;
+	     width: 100%;
+	     height: 20px;
+	     background: linear-gradient(to right, black,  #330033);
+	     border-top: 2px solid #4d004d;
+	     color:  #cc99ff;
+	     text-align: center;
+	     line-height: 20px;
+	 }
+	 .generate-btn {
+	     border: 2px solid #4d004d;
+	     border-radius: 20px;
+	     background-color: black;
+	     color: #cc99ff;
+	     padding: 10px 20px;
+	     position: absolute;
+	     left: 20px;
+	     top: 5px;
+	     z-index: 100;
+	 }
+	 .archive-btn {
+	     border: 2px solid #4d004d;
+	     border-radius: 20px;
+	     background-color: black;
+	     color: #cc99ff;
+	     padding: 10px 20px;
+	     position: absolute;
+	     left: 140px;
+	     top: 5px;
+	     z-index: 100;
+	 }
+	 .content {
+	     display: flex;
+	     flex-wrap: wrap;
+	     margin-top: 60px;
+	     padding: 20px;
+	 }
+	 .prompt {
+	     margin: 10px;
+	     background-color: #1a001a;
+	     color: white;
+	     padding: 20px;
+	     border-radius: 10px;
+	     min-width: 256px;
+	     max-width: 450px;
+	     text-align: center;
+	     animation: fadeIn 2s;
+	     box-shadow: 10px 10px 2px #4d004d;
+	 }
+	 .prompt img {
+	     max-width: 256px;
+	     max-height: 256px;
+	 }
+	 @keyframes fadeIn {
+	     0% { opacity: 0; }
+	     100% { opacity: 1; }
+	 }
+	 @-moz-keyframes fadeIn {
+	     0% { opacity: 0; }
+	     100% { opacity: 1; }
+	 }
+	 #bbox {
+	     border: 2px solid black;
+	     border-radius: 10px;
+	     width: 32%;
+	     display: inline-block;
+	     text-align: center;
+	 }
+	</style>
+    </head>
+    <body>
+	<div class="header">
+	<button class="generate-btn">Get Fuzzy!</button>
+	<button class="archive-btn">Get An Old Fuzzy!</button>
+	</div>
+	<div class="content"></div>
+	<footer>
+	    <div id="bbox">Made with love in <a href="https://www.spacemacs.org/">Spacemacs</a>.</div>
+	    <div id="bbox">Find the project on GitHub</div>
+	    <div id="bbox">More from me</div>
+	</footer>
+	<script src="gen-gpt.js"></script>
+	<script src="pull-archive.js"></script>
+    </body>
+</html>
