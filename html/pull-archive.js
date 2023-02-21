@@ -1,6 +1,8 @@
+// CHANGE YourHost TO REFLECT YOUR DOMAIN NAME
+const YourHost="darkscrolls.tech";
 const archiveBtn = document.querySelector('.archive-btn');
 archiveBtn.addEventListener('click', function() {
-    fetch('https://darkscrolls.tech/generate-text?archive=yes')
+    fetch('https://${YourHost}/generate-text?archive=yes')
 	.then(response => response.text())
 	.then(text => {
 	    //Text prompt has been captured

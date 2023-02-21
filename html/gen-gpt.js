@@ -1,6 +1,8 @@
-let responseText; const generateBtn = document.querySelector('.generate-btn');
+// CHANGE YourHost TO REFLECT YOUR DOMAIN NAME
+const YourHost="darkscrolls.tech";
+const generateBtn = document.querySelector('.generate-btn');
 generateBtn.addEventListener('click', function() {
-    fetch('https://darkscrolls.tech/generate-text')
+    fetch('https://${YourHost}/generate-text')
 	.then(response => response.text())
 	.then(text => {
 	    //Text prompt has been captured

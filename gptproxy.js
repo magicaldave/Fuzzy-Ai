@@ -10,21 +10,28 @@ const spdy = require('spdy');
 const https = require('https');
 const app = express();
 
+// UPDATE THIS TO REFLECT YOUR DOMAIN NAME
+const allowedReferer = "https://darkscrolls.tech/";
+// UPDATE THIS TO POINT TO YOUR SSL CERTIFICATE
+const sslKey = '/root/certs/darkscrolls.tech.key'
+const sslCert = '/root/certs/darkscrolls.tech.cert'
+// EXPORT YOUR API KEYS IN .BASHRC BEFORE ATTEMPTING TO RUN THE SERVER
+const openai_api_key = process.env.OPENAI_API_KEY;
+const xi_api_key = process.env.XI_API_KEY;
+
+
 const logPath = path.join(os.homedir(), 'Fuzzy-Ai', 'gptprompts.log');
 const accessLogPath = path.join(os.homedir(), 'Fuzzy-Ai', 'access.log');
 const imgPath = path.join(os.homedir(), 'Fuzzy-Ai/images');
 const voicePath = path.join(os.homedir(), 'Fuzzy-Ai/voices');
 
-
-const openai_api_key = process.env.OPENAI_API_KEY;
-const xi_api_key = process.env.XI_API_KEY;
+// Visit https://api.elevenlabs.io/v1/voices to list available voices.
 const voice = 'VR6AewLTigWG4xSOukaG';
 const dallEUrl = "https://api.openai.com/v1/images/generations";
 const gptUrl = "https://api.openai.com/v1/engines/text-davinci-002/completions";
-const allowedReferer = "https://darkscrolls.tech/";
 
 app.use(cors({
-    origin: "https://darkscrolls.tech"
+    origin: allowedReferer
 }));
 
 app.get("/generate-text", handleGenerateTextRequest);
@@ -258,25 +265,12 @@ async function handleGenerateVoiceRequest(req, res) {
 	console.error(error);
 	res.status(500).send('Error generating audio file.');
     }
-    // Send the voice file
-    // const filePath = path.join("/root/Fuzzy-Ai/", "eleven.mpeg");
-    // const stream = fs.createReadStream(filePath);
-
-    // stream.on("open", function () {
-    // 	stream.pipe(res);
-    // });
-
-    // stream.on("error", function (err) {
-    // 	console.error(err);
-    // 	res.end(err);
-    // });
 }
-
 
 // SSL/TLS options
 const options = {
-    key: fs.readFileSync('/root/certs/darkscrolls.tech.key'),
-    cert: fs.readFileSync('/root/certs/darkscrolls.tech.cert')
+    key: fs.readFileSync(sslKey),
+    cert: fs.readFileSync(sslCert)
 };
 
 // Create the HTTP2 server
