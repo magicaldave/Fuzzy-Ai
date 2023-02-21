@@ -22,8 +22,8 @@ The Elevenlabs API key should be called XI_API_KEY, and the OpenAI Api key shoul
 
 6. Make sure you have npm installed, then
 
-`cd Fuzzy-Ai && npm install express axios spdy` to install nodeJS dependencies.
-I'm working on making the project automatically install dependencies! Please offer PRs, they WILL be accepted.
+	`cd Fuzzy-Ai && npm install express axios spdy` to install nodeJS dependencies.
+	I'm working on making the project automatically install dependencies! Please offer PRs, they WILL be accepted.
 
 7. Once your certs and API keys are set up, double-check the .js files in `html/` are pointing to the correct host.
 
